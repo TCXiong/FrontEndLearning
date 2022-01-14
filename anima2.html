@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn1">go</button>
+    <button class="btn2">back</button>
+    <div></div>
+</body>
+</html>
+<script>
+    //stop用法，处理动画积累问题
+    $('.btn1').click(function(){
+        $("div").stop(true).animate({
+            "left" : 1000
+        },2000);
+    });
+
+    $('.btn2').click(function(){
+        $("div").stop(true).animate({
+            "left" : 0
+        },2000);
+    });
+
+
+</script>

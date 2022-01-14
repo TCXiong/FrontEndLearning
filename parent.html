@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 500px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 100px auto;
+        }
+        p{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+    </div>
+</body>
+</html>
+<script>
+    // $("p").click(function(){
+    //     $("div").css({
+    //         "background":"blue"
+    //     })
+    // })
+
+    // $("p").parent().css({
+    //     "background":"blue"
+    // })
+ 
+    // $("p").click(function(){
+    //     $(this).css({
+    //         "background":"blue"
+    //     })
+    // });
+
+
+    // $("p").click(function(){
+    //     $(this).css({
+    //         "background" : "yellow"
+    //     }).siblings().css({
+    //     "background" : "green"
+    // })
+    // })
+
+    $("div").children().css({
+        "background":"red"
+    })
+
+
+</script>

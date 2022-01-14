@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <ul>
+        <li>first</li>
+        <li>second</li>
+        <li>third</li>
+        <li>fourth</li>   
+    </ul>
+
+    <div id="box">hello</div>
+    <div class = "cla">Class</div>
+
+
+    <div>China</div>
+    <div>America</div>
+    <div>Japan</div>
+    <div>England</div>
+</body>
+
+</html>
+
+<script>
+    //jQ常用来匹配标签
+    console.log($("li"));
+    console.log($("#box"));
+    console.log($(".cla"));
+
+
+    $("li").css({
+        "color" : "red"
+    });
+
+    $("li").css({
+        "color": "red",
+        "fontSize":30,
+        "background" :"blue" 
+    })
+
+    //JQ独有的选择器
+    //:first
+    $("div:first").css({
+        "color" : "red"
+    })
+    //:last
+    $("div:last").css({
+        "color":"blue"
+    })
+    //:even   :odd
+    $("div:even").css({
+        "fontSize" : 30
+    })
+    //:gt    :lt    大于，小于选择器
+    $("div:gt(3)").css({
+        "backgroundColor" : "green"
+    })
+
+</script>

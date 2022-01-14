@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+            list-style: none;
+
+
+        }
+
+        img {
+            width: 600px;
+            height: 400px;
+        }
+
+        ul li {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+            left: 600px;
+        }
+
+        .current {
+            left: 0;
+        }
+
+        .lbtn {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            left: 0px;
+            top: 40%;
+        }
+
+        .rbtn {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            right: 0px;
+            top: 40%;
+        }
+
+        ol {
+            position: absolute;
+            width: 150px;
+            height: 25px;
+            /* background-color: red; */
+            left: 38%;
+            bottom: 5px;
+            list-style: none;
+
+        }
+
+        ol li {
+            float: left;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: black;
+            color: white;
+            list-style: none;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 3px;
+        }
+
+        .cur {
+            background-color: green;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li class="current"><img src="img2/1.jpg" alt=""></li>
+            <li><img src="img2/2.jpg" alt=""></li>
+            <li><img src="img2/3.jpg" alt=""></li>
+            <li><img src="img2/4.jpg" alt=""></li>
+            <li><img src="img2/5.jpg" alt=""></li>
+        </ul>
+        <button class="lbtn">&lt;</button>
+        <button class="rbtn">&gt;</button>
+        <ol>
+            <li class="cur">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var idx = 0;
+    function right() {
+        $("ul li").eq(idx).css({
+            "left": 0
+        }).stop(true).animate({
+            "left": -600
+        }, 500);
+        idx++;
+        idx = idx > 4 ? 0 : idx
+
+        $("ul li").eq(idx).css({
+            "left": 600
+        }).stop(true).animate({
+            "left": 0
+        }, 500)
+
+        $("ol li").eq(idx).addClass("cur").siblings().removeClass("cur");
+    }
+
+    function left(){
+        $("ul li").eq(idx).css({
+            "left": 0
+        }).stop(true).animate({
+            "left": 600
+        }, 500);
+        idx--;
+        idx = idx < 0 ? 4 : idx
+
+        $("ul li").eq(idx).css({
+            "left": -600
+        }).stop(true).animate({
+            "left": 0
+        }, 500)
+
+        $("ol li").eq(idx).addClass("cur").siblings().removeClass("cur");
+    }
+
+    $(".rbtn").click(right());
+    $(".lbtn").click(left());
+
+    //开启自动轮播
+    var timer = setInterval(() => {
+        right();
+    }, 1500);
+    //鼠标移上事件
+    $("div").mouseenter(function () {
+        clearInterval(timer);
+    });
+    //鼠标移出事件
+    $("div").mouseleave(function () {
+        timer = setInterval(() => {
+            right();
+        }, 1500);
+    })
+
+
+    $("ol li").click(function () {
+        
+        var index = $(this).index();
+        
+        if (index > idx) {
+            $("ul li").eq(idx).css({
+                "left": 0
+            }).stop(true).animate({
+                "left": -600
+            }, 500);
+
+            $("ul li").eq(index).css({
+                "left": 600
+            }).stop(true).animate({
+                "left": 0
+            }, 500);
+        
+            idx = index;
+           
+            $("ol li").eq(idx).addClass("cur").siblings().removeClass();
+        } else {
+            
+            $("ul li").eq(idx).css({
+                "left": 0
+            }).stop(true).animate({
+                "left": -600
+            }, 500);
+         
+            $("ul li").eq(index).css({
+                "left": 600
+            }).stop(true).animate({
+                "left": 0
+            }, 500);
+       
+            idx = index;
+    
+            $("ol li").eq(idx).addClass("cur").siblings().removeClass();
+        }
+
+    })
+
+</script>

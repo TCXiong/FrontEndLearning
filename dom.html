@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" id="box">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- test1 -->
+    <div id="box2">
+        <ul>
+            <li>hahah</li>
+        </ul>
+    </div>
+
+    <!-- test2 -->
+    <div>
+        input: <input type="text" value="default" id="cur">
+    </div>
+
+
+    <!-- test3 -->
+    <a href="http://www.baidu.com" id="ha">baidu</a>
+
+
+    <!-- test4 -->
+    <img src="img/1.jpg" alt="" id="img1">
+
+
+    <!-- test5 -->
+    <div class="fu" id="dd">hello</div>
+</body>
+</html>
+
+<script>
+    //通过id获取标签  test1
+    var box2 = document.getElementById('box2');
+    console.log(box2);
+
+    //操作标签文本（表单元素）  test2
+    var input = document.getElementById('cur');
+    console.log(input.value);
+    input.value = "change the content"
+    //动态修改表单内容
+    console.log(input.value);
+
+    //获取非表单元素 test3
+    var a = document.getElementById("ha");
+    console.log(a.innerHTML);
+    a.innerHTML="change";
+    console.log(a.innerHTML);
+
+
+    // 获取属性值
+    var img1 = document.getElementById('img1');
+    console.log(img1.src);
+    img1.src = "img/2.jpg"
+
+    var div = document.getElementById('dd');
+    console.log(div.className);      //获取class属性值
+    div.className="change";
+    console.log(div.className);
+</script>

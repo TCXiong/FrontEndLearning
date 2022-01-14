@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+        <style>
+            div{
+                width: 400px;
+                height: 200px;
+                background-color: red;
+            }
+        </style>
+</head>
+<body>
+    <button id="box1">slideUp</button>
+    <button id="box2">slidDown</button>
+    <button id="box3">fadeIn</button>
+    <button id="box4">fadeOut</button>
+    <div></div>
+</body>
+</html>
+
+<script>
+    $("#box1").click(function(){
+        $("div").slideUp(2000);
+    })
+
+    $("#box2").click(function(){
+        $("div").slideDown(2000);
+    })
+
+    $("#box3").click(function(){
+        $("div").fadeIn(2000);
+    })
+    $("#box4").click(function(){
+        $("div").fadeOut(2000);
+    })
+</script>
