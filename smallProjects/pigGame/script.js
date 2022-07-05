@@ -70,7 +70,7 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     //check if win
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       playing = false;
       document
         .querySelector(`.player--${activePlayer}`)
